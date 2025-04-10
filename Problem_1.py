@@ -66,7 +66,7 @@ param_grid_rf = {
 grid_search_rf = GridSearchCV(RandomForestClassifier(random_state=42), param_grid_rf, cv=3, scoring='accuracy', n_jobs=-1) # n_jobs=-1 uses all available cores
 grid_search_rf.fit(X_train, y_train)
 
-# Get the best Random Forest model
+# Get the Random Forest model
 best_rf_clf = grid_search_rf.best_estimator_
 
 # Prediction
@@ -76,8 +76,8 @@ y_pred_rf = best_rf_clf.predict(X_test)
 accuracy_rf = accuracy_score(y_test, y_pred_rf)
 report_rf = classification_report(y_test, y_pred_rf, target_names=appliance_names)
 
-print("--- Best Random Forest Model ---")
-print("Best Hyperparameters:", grid_search_rf.best_params_)
+print("--- Random Forest Model ---")
+print("Hyperparameters:", grid_search_rf.best_params_)
 print("Accuracy:", accuracy_rf)
 print("Classification Report:\n", report_rf)
 
